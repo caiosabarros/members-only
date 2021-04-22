@@ -14,8 +14,13 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-       <%#<td><strong><%=post.user.name</strong>></td>%>
-      <%#<td><strong><%=post.user.name</strong>></td>%>
+      <% if user_signed_in?%>
+       <td><strong><%= post.user.name %></strong></td>
+      <td><strong><%= post.user.username %></strong></td>
+      <% else %>
+       <td><strong> Anonymous Author</strong></td>
+       <td><strong> anonymous username</strong></td>
+      <%end%>
         <td><%= post.title %></td>
         <td><%= post.body %></td>
         
